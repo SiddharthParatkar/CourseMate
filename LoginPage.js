@@ -1,19 +1,25 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#add8e6',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20
+    backgroundColor: "#add8e6",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
   },
   login: {
     fontSize: 40,
     fontWeight: "bold",
-    marginBottom: '100%',
-    
+    marginBottom: "100%",
   },
   input: {
     height: 40,
@@ -22,38 +28,64 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 5,
     marginBottom: 20,
-    width: '90%',
+    width: "90%",
     color: "#000",
-  }
+  },
+  submitButton: {
+    backgroundColor: "#E7821E",
+    padding: 10,
+    margin: 15,
+    height: 40,
+  },
+  submitButtonText: {
+    color: "white",
+  },
 });
 
 export default class LoginPage extends React.Component {
   state = {
-    username: "",
+    email: "",
     password: "",
-  }
+  };
+  handleEmail = (text) => {
+    this.setState({ email: text });
+  };
+  handlePassword = (text) => {
+    this.setState({ password: text });
+  };
+  login = (email, pass) => {
+    alert("email: " + email + " password: " + pass);
+  };
 
-  render() { //add logo if/when we make one
+  render() {
+    //add logo if/when we make one
     return (
       <View style={styles.container}>
         <Text //change color + font
-          style={styles.login}>Welcome to CourseMate!
+          style={styles.login}
+        >
+          Welcome to CourseMate!
         </Text>
         <TextInput //email validation
           style={styles.input}
           placeholder="Email"
-          placeholderTextColor='#000'
-          onChangeText={username => this.setState({username})}
-          value={this.state.username}
+          placeholderTextColor="#000"
+          onChangeText = {this.handleEmail}
+          value={this.state.email}
         />
         <TextInput
           style={styles.input}
           placeholder="Password"
-          placeholderTextColor='#000'
-          onChangeText={password => this.setState({password})}
+          placeholderTextColor="#000"
+          onChangeText = {this.handlePassword}
           value={this.state.password}
         />
-        <Button title="Log in" color='#E7821E'/>
+        <TouchableOpacity
+          style={styles.submitButton}
+          onPress={() => this.login(this.state.email, this.state.password)}
+        >
+          <Text style={styles.submitButtonText}> Submit </Text>
+        </TouchableOpacity>
       </View>
     );
   }
