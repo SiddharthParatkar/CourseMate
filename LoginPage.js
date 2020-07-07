@@ -11,7 +11,7 @@ import {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#add8e6",
+    backgroundColor: "#9EDDFF",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -32,14 +32,16 @@ const styles = StyleSheet.create({
     color: "#000",
   },
   submitButton: {
-    backgroundColor: "#E7821E",
+    backgroundColor: "#FACC8D",
+    borderColor: '#000',
+    borderWidth: 1,
     padding: 10,
     margin: 15,
     height: 40,
     width: '90%',
   },
   submitButtonText: {
-    color: "white",
+    color: "#761714",
   },
 });
 
