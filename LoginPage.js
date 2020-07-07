@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 15,
     height: 40,
+    width: '90%',
   },
   submitButtonText: {
     color: "white",
