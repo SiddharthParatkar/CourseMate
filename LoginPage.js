@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   login: {
     fontSize: 40,
     fontWeight: "bold",
-    marginBottom: "100%",
+    marginBottom: "60%",
   },
   input: {
     height: 40,
