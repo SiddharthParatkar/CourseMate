@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#9EDDFF",
     alignItems: "center",
     justifyContent: "center",
-    padding: 20,
+    padding: 21,
   },
   login: {
     fontSize: 40,
