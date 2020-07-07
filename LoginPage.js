@@ -33,15 +33,18 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     backgroundColor: "#FACC8D",
-    borderColor: '#000',
+    borderColor: "#000",
     borderWidth: 1,
     padding: 10,
     margin: 15,
     height: 40,
-    width: '90%',
+    width: "90%",
   },
   submitButtonText: {
     color: "#761714",
+  },
+  setColorOrange: {
+    color: '#3C8C44'
   },
 });
 
@@ -56,16 +59,16 @@ export default class LoginPage extends React.Component {
   handlePassword = (text) => {
     this.setState({ password: text });
   };
-  login = (email, pass) => {
-    alert("email: " + email + " password: " + pass);
-  };
+  // login = (email, pass) => {
+  //   alert("email: " + email + " password: " + pass);
+  // };
 
   render() {
     //add logo if/when we make one
     return (
       <View style={styles.container}>
-        <Text //change color + font
-          style={styles.login}
+        <Text //change font
+          style={[styles.login, styles.setColorOrange]}
         >
           Welcome to CourseMate!
         </Text>
@@ -73,14 +76,14 @@ export default class LoginPage extends React.Component {
           style={styles.input}
           placeholder="Email"
           placeholderTextColor="#000"
-          onChangeText = {this.handleEmail}
+          onChangeText={this.handleEmail}
           value={this.state.email}
         />
         <TextInput
           style={styles.input}
           placeholder="Password"
           placeholderTextColor="#000"
-          onChangeText = {this.handlePassword}
+          onChangeText={this.handlePassword}
           value={this.state.password}
         />
         <TouchableOpacity
