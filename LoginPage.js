@@ -10,6 +10,13 @@ import {
   StatusBar,
 } from "react-native";
 
+//add logo if/when we make one
+//change font
+//email validation + can't actually login
+//make a good theme and stick to it
+//for future style and making a new page: https://www.youtube.com/watch?v=_K41vd_W2qE
+//
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -28,6 +35,8 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderWidth: 1,
     marginBottom: 20,
+    borderRadius: 25,
+    fontSize: 20,
     width: "90%",
     color: "#000",
   },
@@ -35,14 +44,22 @@ const styles = StyleSheet.create({
     backgroundColor: "#FACC8D",
     borderColor: "#000",
     borderWidth: 1,
+    alignItems: "center",
+    borderRadius: 25,
     padding: 10,
-    width: "90%",
+    width: "30%",
   },
   submitButtonText: {
     color: "#761714",
+    fontSize: 20,
   },
   setColorOrange: {
     color: "#3C8C44",
+  },
+  signupText: {
+    fontSize: 20,
+    marginVertical: 10,
+    padding: 20,
   },
 });
 
@@ -59,16 +76,13 @@ export default class LoginPage extends React.Component {
   };
 
   render() {
-    //add logo if/when we make one
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <Text //change font
-          style={[styles.login, styles.setColorOrange]}
-        >
+        <Text style={[styles.login, styles.setColorOrange]}>
           Welcome to CourseMate!
         </Text>
-        <TextInput //email validation + can't actually login
+        <TextInput
           style={styles.input}
           placeholder="Email"
           placeholderTextColor="#000"
@@ -96,6 +110,9 @@ export default class LoginPage extends React.Component {
         >
           <Text style={styles.submitButtonText}> Submit </Text>
         </TouchableOpacity>
+        <View>
+          <Text style={styles.signupText}>Don't have an account? Click Me!</Text>
+        </View>
       </View>
     );
   }
