@@ -6,6 +6,8 @@ import {
   View,
   Button,
   TouchableOpacity,
+  KeyboardAvoidingView,
+  StatusBar,
 } from "react-native";
 
 const styles = StyleSheet.create({
@@ -14,19 +16,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#9EDDFF",
     alignItems: "center",
     justifyContent: "center",
-    padding: 21,
   },
   login: {
     fontSize: 40,
     fontWeight: "bold",
-    marginBottom: "60%",
+    marginBottom: "50%",
   },
   input: {
     height: 40,
-    padding: 5,
+    padding: 10,
     borderColor: "black",
     borderWidth: 1,
-    marginTop: 5,
     marginBottom: 20,
     width: "90%",
     color: "#000",
@@ -36,15 +36,13 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderWidth: 1,
     padding: 10,
-    margin: 15,
-    height: 40,
     width: "90%",
   },
   submitButtonText: {
     color: "#761714",
   },
   setColorOrange: {
-    color: '#3C8C44'
+    color: "#3C8C44",
   },
 });
 
@@ -59,32 +57,38 @@ export default class LoginPage extends React.Component {
   handlePassword = (text) => {
     this.setState({ password: text });
   };
-  // login = (email, pass) => {
-  //   alert("email: " + email + " password: " + pass);
-  // };
 
   render() {
     //add logo if/when we make one
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
         <Text //change font
           style={[styles.login, styles.setColorOrange]}
         >
           Welcome to CourseMate!
         </Text>
-        <TextInput //email validation
+        <TextInput //email validation + can't actually login
           style={styles.input}
           placeholder="Email"
           placeholderTextColor="#000"
+          returnKeyType="next"
+          onSubmitEditing={() => this.passwordInput.focus()}
+          keyboardType="email-address"
           onChangeText={this.handleEmail}
+          autoCapitalize="none"
+          autoCorrect={false}
           value={this.state.email}
         />
         <TextInput
           style={styles.input}
           placeholder="Password"
           placeholderTextColor="#000"
+          secureTextEntry
+          returnKeyType="go"
           onChangeText={this.handlePassword}
           value={this.state.password}
+          ref={(input) => (this.passwordInput = input)}
         />
         <TouchableOpacity
           style={styles.submitButton}
