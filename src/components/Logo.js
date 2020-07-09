@@ -2,11 +2,7 @@ import React from "react";
 import {
   StyleSheet,
   Text,
-  TextInput,
   View,
-  Button,
-  TouchableOpacity,
-  KeyboardAvoidingView,
   Image,
 } from "react-native";
 
@@ -15,7 +11,7 @@ export default class Logo extends React.Component {
     return (
       <View style={styles.container}>
         <Image
-          style={{ width: 70, height: 90 }}
+          style={{ width: 70, height: 90 }} //resize as needed
           source={require("../images/Placeholder.png")} //get an actual logo
         />
         <Text style={styles.title}>Welcome to CourseMate!</Text>
@@ -33,6 +29,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
+    marginVertical: 15,
     fontWeight: "bold",
     color: "#ffff",
   },
