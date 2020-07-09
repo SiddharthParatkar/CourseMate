@@ -7,7 +7,9 @@ import {
   Text,
 } from "react-native";
 
-export default class Logo extends React.Component {
+import Logo from "../components/Logo";
+
+export default class Signup extends React.Component {
   state = {
     email: "",
     password: "",
@@ -26,6 +28,7 @@ export default class Logo extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.title}>Thanks for joining us!</Text>
         <TextInput
           style={styles.input}
           placeholder="Email"
@@ -55,8 +58,8 @@ export default class Logo extends React.Component {
           <Text style={styles.submitButtonText}> Submit </Text>
         </TouchableOpacity>
         <View style={styles.signupTextCont}>
-          <Text style={styles.signupText}>Don't have an account?</Text>
-          <Text style={styles.signupButton}>Sign Up!</Text>
+          <Text style={styles.signupText}>Already made an account?</Text>
+          <Text style={styles.signupButton}>Log In!</Text>
         </View>
       </View>
     );
@@ -65,10 +68,18 @@ export default class Logo extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
     backgroundColor: "#4b636e",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
+  title: {
+    fontSize: 40,
+    marginVertical: 15,
+    marginBottom: 40,
+    fontWeight: "bold",
+    color: "#ffff",
   },
   input: {
     backgroundColor: "rgba(255,255,255,0.3)",
@@ -78,7 +89,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 25,
     fontSize: 20,
-    width: "110%",
+    width: 400,
   },
   submitButton: {
     backgroundColor: "#37474f",
@@ -87,7 +98,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 10,
     paddingVertical: 7,
-    width: "110%",
+    width: 400,
     marginBottom: "30%",
   },
   submitButtonText: {

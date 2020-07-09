@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     backgroundColor: "#4b636e",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-end",
   },
   title: {
     fontSize: 40,
