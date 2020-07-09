@@ -10,36 +10,7 @@ import {
   StatusBar,
 } from "react-native";
 
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    padding: 10,
-    borderColor: "black",
-    borderWidth: 1,
-    marginBottom: 20,
-    borderRadius: 25,
-    fontSize: 20,
-    width: "90%",
-    color: "#000",
-  },
-  submitButton: {
-    backgroundColor: "#FACC8D",
-    borderColor: "#000",
-    borderWidth: 1,
-    alignItems: "center",
-    borderRadius: 25,
-    padding: 10,
-    width: "30%",
-  },
-  submitButtonText: {
-    fontSize: 20,
-  },
-  signupText: {
-    fontSize: 20,
-    marginVertical: 10,
-    padding: 20,
-  },
-});
+import Logo from "../components/Logo";
 
 export default class LoginPage extends React.Component {
   state = {
@@ -55,10 +26,8 @@ export default class LoginPage extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
-        <Text style={[styles.title]}>Welcome to CourseMate!</Text>
-        <StatusBar backgroundColor="#37474f" barStyle="light-content" />
+      <View>
+        <Logo />
         {/* <TextInput
           style={styles.input}
           placeholder="Email"
@@ -96,3 +65,34 @@ export default class LoginPage extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    padding: 10,
+    borderColor: "black",
+    borderWidth: 1,
+    marginBottom: 20,
+    borderRadius: 25,
+    fontSize: 20,
+    width: "90%",
+    color: "#000",
+  },
+  submitButton: {
+    backgroundColor: "#FACC8D",
+    borderColor: "#000",
+    borderWidth: 1,
+    alignItems: "center",
+    borderRadius: 25,
+    padding: 10,
+    width: "30%",
+  },
+  submitButtonText: {
+    fontSize: 20,
+  },
+  signupText: {
+    fontSize: 20,
+    marginVertical: 10,
+    padding: 20,
+  },
+});
