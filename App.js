@@ -10,7 +10,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#37474f" barStyle="light-content" />
-        <Signup />
+        <LoginPage />
       </View>
     );
   }

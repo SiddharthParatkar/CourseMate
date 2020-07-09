@@ -52,7 +52,7 @@ export default class Logo extends React.Component {
           style={styles.submitButton}
           onPress={() => this.login(this.state.email, this.state.password)}
         >
-          <Text style={styles.submitButtonText}> Submit </Text>
+          <Text style={styles.submitButtonText}> Log In </Text>
         </TouchableOpacity>
         <View style={styles.signupTextCont}>
           <Text style={styles.signupText}>Don't have an account?</Text>
