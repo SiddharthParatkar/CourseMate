@@ -58,20 +58,20 @@ export default class Logo extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: "#4b636e",
     alignItems: "center",
     justifyContent: "center",
   },
   input: {
     backgroundColor: "rgba(255,255,255,0.3)",
-    height: 40,
+    height: 50,
     paddingHorizontal: 16,
     borderWidth: 1,
     marginVertical: 10,
     borderRadius: 25,
-    fontSize: 20,
-    width: "90%",
+    fontSize: 30,
+    width: "110%",
   },
   submitButton: {
     backgroundColor: "#37474f",
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     paddingVertical: 7,
     width: "30%",
+    marginBottom: "30%",
   },
   submitButtonText: {
     fontSize: 20,
@@ -87,7 +88,6 @@ const styles = StyleSheet.create({
   },
   signupText: {
     fontSize: 20,
-    flex: 1,
-    color: "#fff"
+    color: "#fff",
   },
 });
