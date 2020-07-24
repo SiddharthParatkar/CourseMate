@@ -69,6 +69,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#4b636e",
     alignItems: "center",
     justifyContent: "flex-end",
+    paddingLeft: "10%",
+    paddingRight: "10%"
   },
   input: {
     backgroundColor: "rgba(255,255,255,0.3)",
