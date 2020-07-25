@@ -6,8 +6,7 @@ import {
   Image,
 } from "react-native";
 
-export default class Logo extends React.Component {
-  render() {
+const Logo = () => {
     return (
       <View style={styles.container}>
         <Image
@@ -17,15 +16,17 @@ export default class Logo extends React.Component {
         <Text style={styles.title}>Welcome to CourseMate!</Text>
       </View>
     );
-  }
 }
+
+export default Logo;
 
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: "#4b636e",
     alignItems: "center",
-    justifyContent: "flex-end",
+    paddingTop: "40%",
+    paddingBottom: "10%",
   },
   title: {
     fontSize: 40,

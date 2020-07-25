@@ -8,24 +8,26 @@ import {
 } from "react-native";
 
 import Logo from "../components/Logo";
+import { useNavigation } from "@react-navigation/native";
 
-export default class Signup extends React.Component {
-  state = {
+const Signup = () => {
+  const navigation = useNavigation();
+
+  const state = {
     email: "",
     password: "",
   };
-  handleEmail = (text) => {
-    this.setState({ email: text });
+  const handleEmail = (text) => {
+    state.email = text;
   };
-  handlePassword = (text) => {
-    this.setState({ password: text });
+  const handlePassword = (text) => {
+    state.password = text;
   };
 
-  login = (email, pass) => {
+  const login = (email, pass) => {
     alert("email: " + email + " password: " + pass);
   };
 
-  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Thanks for joining us!</Text>
@@ -34,12 +36,11 @@ export default class Signup extends React.Component {
           placeholder="Email"
           placeholderTextColor="#fff"
           returnKeyType="next"
-          onSubmitEditing={() => this.passwordInput.focus()}
           keyboardType="email-address"
-          onChangeText={this.handleEmail}
+          onChangeText={handleEmail}
           autoCapitalize="none"
           autoCorrect={false}
-          value={this.state.email}
+          value={state.email}
         />
         <TextInput
           style={styles.input}
@@ -47,49 +48,52 @@ export default class Signup extends React.Component {
           placeholderTextColor="#fff"
           secureTextEntry
           returnKeyType="go"
-          onChangeText={this.handlePassword}
-          value={this.state.password}
-          ref={(input) => (this.passwordInput = input)}
+          autoCapitalize="none"
+          onChangeText={handlePassword}
+          value={state.password}
         />
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => this.login(this.state.email, this.state.password)}
+          onPress={() => login(state.email, state.password)}
         >
           <Text style={styles.submitButtonText}> Sign Up </Text>
         </TouchableOpacity>
         <View style={styles.signupTextCont}>
           <Text style={styles.signupText}>Already made an account?</Text>
-          <Text style={styles.signupButton}>Log In!</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('login')}>
+          <Text style={styles.signupButton}>Log In!</Text></TouchableOpacity>
         </View>
       </View>
     );
-  }
 }
+
+export default Signup;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#4b636e",
     alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
+    paddingRight: "10%",
+    paddingLeft: "10%",
   },
   title: {
     fontSize: 40,
-    marginVertical: 15,
-    marginBottom: 40,
+    marginVertical: "85%",
+    marginBottom: "20%",
+    textAlign: "center",
     fontWeight: "bold",
     color: "#ffff",
   },
   input: {
     backgroundColor: "rgba(255,255,255,0.3)",
     height: 50,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
     borderWidth: 1,
     marginVertical: 10,
     borderRadius: 25,
     fontSize: 20,
-    width: 400,
+    width: 300,
   },
   submitButton: {
     backgroundColor: "#37474f",
@@ -98,7 +102,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 10,
     paddingVertical: 7,
-    width: 400,
+    width: 150,
     marginBottom: "30%",
   },
   submitButtonText: {
@@ -111,7 +115,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   signupTextCont: {
-    paddingBottom: 20,
+    paddingBottom: "10%",
     alignItems: "center",
   },
   signupButton: {

@@ -6,24 +6,26 @@ import {
   TouchableOpacity,
   Text,
 } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
-export default class Logo extends React.Component {
-  state = {
+const Form = () => {
+  const navigation = useNavigation();
+
+  const state = {
     email: "",
     password: "",
   };
-  handleEmail = (text) => {
-    this.setState({ email: text });
+  const handleEmail = (text) => {
+    state.email = text;
   };
-  handlePassword = (text) => {
-    this.setState({ password: text });
+  const handlePassword = (text) => {
+    state.password = text;
   };
 
-  login = (email, pass) => {
+  const login = (email, pass) => {
     alert("email: " + email + " password: " + pass);
   };
 
-  render() {
     return (
       <View style={styles.container}>
         <TextInput
@@ -31,12 +33,11 @@ export default class Logo extends React.Component {
           placeholder="Email"
           placeholderTextColor="#fff"
           returnKeyType="next"
-          onSubmitEditing={() => this.passwordInput.focus()}
           keyboardType="email-address"
-          onChangeText={this.handleEmail}
+          onChangeText={handleEmail}
           autoCapitalize="none"
           autoCorrect={false}
-          value={this.state.email}
+          value={state.email}
         />
         <TextInput
           style={styles.input}
@@ -44,53 +45,56 @@ export default class Logo extends React.Component {
           placeholderTextColor="#fff"
           secureTextEntry
           returnKeyType="go"
-          onChangeText={this.handlePassword}
-          value={this.state.password}
-          ref={(input) => (this.passwordInput = input)}
+          autoCapitalize="none"
+          onChangeText={handlePassword}
+          value={state.password}
         />
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => this.login(this.state.email, this.state.password)}
+          onPress={() => login(state.email, state.password)}
         >
           <Text style={styles.submitButtonText}> Log In </Text>
         </TouchableOpacity>
         <View style={styles.signupTextCont}>
           <Text style={styles.signupText}>Don't have an account?</Text>
-          <Text style={styles.signupButton}>Sign Up!</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("signup")}>
+          <Text
+            style={styles.signupButton}>Sign Up!</Text></TouchableOpacity>
         </View>
       </View>
     );
-  }
 }
+
+export default Form;
 
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: "#4b636e",
     alignItems: "center",
-    justifyContent: "flex-end",
     paddingLeft: "10%",
-    paddingRight: "10%"
+    paddingRight: "10%",
+    paddingBottom: "10%"
   },
   input: {
     backgroundColor: "rgba(255,255,255,0.3)",
     height: 50,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
     borderWidth: 1,
     marginVertical: 10,
     borderRadius: 25,
     fontSize: 20,
-    width: "110%",
+    width: 300,
   },
   submitButton: {
     backgroundColor: "#37474f",
     borderWidth: 1,
     borderRadius: 25,
     alignItems: "center",
-    marginVertical: 10,
-    paddingVertical: 7,
-    width: "110%",
-    marginBottom: "30%",
+    marginTop: "5%",
+    paddingVertical: 10,
+    width: 150,
+    marginBottom: "25%",
   },
   submitButtonText: {
     fontSize: 20,
@@ -102,7 +106,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   signupTextCont: {
-    paddingBottom: 20,
+    paddingBottom: "10%",
     alignItems: "center",
   },
   signupButton: {
