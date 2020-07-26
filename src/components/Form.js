@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   TextInput,
@@ -11,16 +11,8 @@ import { useNavigation } from '@react-navigation/native';
 const Form = () => {
   const navigation = useNavigation();
 
-  const state = {
-    email: "",
-    password: "",
-  };
-  const handleEmail = (text) => {
-    state.email = text;
-  };
-  const handlePassword = (text) => {
-    state.password = text;
-  };
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
 
   const login = (email, pass) => {
     alert("email: " + email + " password: " + pass);
@@ -34,10 +26,10 @@ const Form = () => {
           placeholderTextColor="#fff"
           returnKeyType="next"
           keyboardType="email-address"
-          onChangeText={handleEmail}
+          onChangeText={setEmail}
           autoCapitalize="none"
           autoCorrect={false}
-          value={state.email}
+          value={email}
         />
         <TextInput
           style={styles.input}
@@ -46,12 +38,12 @@ const Form = () => {
           secureTextEntry
           returnKeyType="go"
           autoCapitalize="none"
-          onChangeText={handlePassword}
-          value={state.password}
+          onChangeText={setPass}
+          value={pass}
         />
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => login(state.email, state.password)}
+          onPress={() => login(email, pass)}
         >
           <Text style={styles.submitButtonText}> Log In </Text>
         </TouchableOpacity>
@@ -74,7 +66,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingLeft: "10%",
     paddingRight: "10%",
-    paddingBottom: "10%"
+    paddingBottom: "10%",
   },
   input: {
     backgroundColor: "rgba(255,255,255,0.3)",

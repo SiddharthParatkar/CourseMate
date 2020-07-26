@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   StyleSheet,
   TextInput,
   View,
   TouchableOpacity,
   Text,
+  ScrollView,
 } from "react-native";
 
 import Logo from "../components/Logo";
@@ -13,23 +14,16 @@ import { useNavigation } from "@react-navigation/native";
 const Signup = () => {
   const navigation = useNavigation();
 
-  const state = {
-    email: "",
-    password: "",
-  };
-  const handleEmail = (text) => {
-    state.email = text;
-  };
-  const handlePassword = (text) => {
-    state.password = text;
-  };
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
 
   const login = (email, pass) => {
     alert("email: " + email + " password: " + pass);
   };
 
     return (
-      <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.container}>
         <Text style={styles.title}>Thanks for joining us!</Text>
         <TextInput
           style={styles.input}
@@ -37,10 +31,10 @@ const Signup = () => {
           placeholderTextColor="#fff"
           returnKeyType="next"
           keyboardType="email-address"
-          onChangeText={handleEmail}
+          onChangeText={setEmail}
           autoCapitalize="none"
           autoCorrect={false}
-          value={state.email}
+          value={email}
         />
         <TextInput
           style={styles.input}
@@ -49,12 +43,12 @@ const Signup = () => {
           secureTextEntry
           returnKeyType="go"
           autoCapitalize="none"
-          onChangeText={handlePassword}
-          value={state.password}
+          onChangeText={setPass}
+          value={pass}
         />
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => login(state.email, state.password)}
+          onPress={() => login(email, pass)}
         >
           <Text style={styles.submitButtonText}> Sign Up </Text>
         </TouchableOpacity>
@@ -63,7 +57,8 @@ const Signup = () => {
           <TouchableOpacity onPress={() => navigation.navigate('login')}>
           <Text style={styles.signupButton}>Log In!</Text></TouchableOpacity>
         </View>
-      </View>
+        </View>
+      </ScrollView>
     );
 }
 
