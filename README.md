@@ -1,5 +1,4 @@
-# CourseMate
-CourseMate
+# CourseMate README.md
 
 ## What is this app all about?
 
