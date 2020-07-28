@@ -13,5 +13,4 @@ CourseMate is coded almost entirely in React Native, using Expo as our testing f
 This app was made by Siddharth Paratkar, Ihita Mandal, David Lyons and Nathan Walker.
 
 ## Demos
-![Login Page]
-(https://coursemate.github.com/CourseMate%Demos/Login.png)
+
