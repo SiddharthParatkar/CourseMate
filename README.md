@@ -1,4 +1,4 @@
-# CourseMate README.md
+# CourseMate
 
 ## Why did you make this app?
 Students who are going to be heading off to college in the fall are going to have a harder time to connect with classmates when they can't physically see them or interact with them after class and walking around campus. Likewise, if students are working from home, then that makes it far more difficult for them to remember everyone in their class and keep in touch with acquiantances that they may have met in the past but haven't talked to in a while. That's why this app exists: to connect students with their current classmates and get close to simulating what a spontaneous connection could be like on campus.
@@ -11,3 +11,6 @@ CourseMate is coded almost entirely in React Native, using Expo as our testing f
 
 ## Who made it?
 This app was made by Siddharth Paratkar, Ihita Mandal, David Lyons and Nathan Walker.
+
+## Demos
+
