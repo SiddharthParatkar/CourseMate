@@ -16,6 +16,7 @@ const Form = () => {
 
   const login = (email, pass) => {
     alert("email: " + email + " password: " + pass);
+    navigation.navigate("home");
   };
 
     return (
