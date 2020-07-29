@@ -4,6 +4,7 @@ import {BackHandler, StyleSheet, Text, View } from "react-native";
 
 import LoginPage from "./src/pages/LoginPage";
 import Signup from "./src/pages/Signup";
+import HomePage from "./src/pages/HomePage";
 
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
