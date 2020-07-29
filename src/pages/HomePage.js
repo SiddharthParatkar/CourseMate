@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   connections: {
     fontSize: 30,
     fontWeight: "bold",
-    paddingTop: "60%"
+    paddingTop: "60%",
   },
   profileButton: {
     backgroundColor: "#8eacbb",
@@ -74,31 +74,27 @@ const styles = StyleSheet.create({
     color: "#761714",
     fontSize: 10,
   },
-})
+});
 
 export default class HomePage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <ScrollView>
-          <Text style={styles.courses}> 
-            Courses 
-          </Text>
-          <Text style={styles.connections}>
-            Connections
-          </Text>
+          <Text style={styles.courses}>Courses</Text>
+          <Text style={styles.connections}>Connections</Text>
         </ScrollView>
-        <TouchableOpacity style={styles.profileButton} >
+        <TouchableOpacity style={styles.profileButton}>
           <Text style={styles.buttonText}> Profile </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.settingsButton} >
-          <Text style={styles.buttonText}> Settings </Text>
+        <TouchableOpacity style={styles.settingsButton}>
+          <Text style={styles.buttonText}> Connections </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.coursesButton} >
+        <TouchableOpacity style={styles.coursesButton}>
           <Text style={styles.buttonText}> Courses </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.connectionsButton} >
-          <Text style={styles.buttonText}> Connections </Text>
+        <TouchableOpacity style={styles.connectionsButton}>
+          <Text style={styles.buttonText}> Settings </Text>
         </TouchableOpacity>
       </View>
     );
