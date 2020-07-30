@@ -7,6 +7,7 @@ import {
   Text,
   ScrollView,
 } from "react-native";
+import AsyncStorage from '@react-native-community/async-storage';
 
 import Logo from "../components/Logo";
 import { useNavigation } from "@react-navigation/native";
@@ -17,9 +18,35 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
 
-  const login = (email, pass) => {
-    alert("email: " + email + " password: " + pass);
-    navigation.navigate("home");
+  const storeData = async (username, password) => {
+    try {
+      console.log(username + password)
+      await AsyncStorage.setItem(username, password)
+    } catch (e) {
+      // saving error
+    }
+  }
+
+  const getData = async (username) => {
+    try {
+      const value = await AsyncStorage.getItem(username);
+      return value;
+    } catch(e) {
+      // error reading value
+    }
+  }
+
+  const signup = async (email, pass) => {
+    const storedPass = await getData(email);
+    if (storedPass != null) {
+      alert("User already exists.")
+    } else if (!email.endsWith("@andrew.cmu.edu")) { 
+      alert("Must be an @andrew.cmu.edu address.")
+    } else {
+      storeData(email, pass);
+      alert("Signup successful.\nEmail: " + email + "\nPassword: " + pass);
+      navigation.navigate("home");
+    }
   };
 
     return (
@@ -49,7 +76,7 @@ const Signup = () => {
         />
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => login(email, pass)}
+          onPress={() => signup(email, pass)}
         >
           <Text style={styles.submitButtonText}> Sign Up </Text>
         </TouchableOpacity>

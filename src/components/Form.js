@@ -7,6 +7,7 @@ import {
   Text,
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const Form = () => {
   const navigation = useNavigation();
@@ -14,9 +15,25 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
 
-  const login = (email, pass) => {
-    alert("email: " + email + " password: " + pass);
-    navigation.navigate("home");
+  const getData = async (username) => {
+    try {
+      const value = await AsyncStorage.getItem(username);
+      return value;
+    } catch(e) {
+      // error reading value
+    }
+  }
+
+  const login = async (email, pass) => {
+    const storedPass = await getData(email);
+    if (storedPass === null) {
+      alert("User does not exist. Did you make sure to type the full e-mail address and use your Andrew email?")
+    } else if (storedPass != pass) {
+      alert("Password is incorrect.")
+    } else {
+      alert("Login successful.\nEmail: " + email + "\nPassword: " + pass);
+      navigation.navigate("home");
+    }
   };
 
     return (
