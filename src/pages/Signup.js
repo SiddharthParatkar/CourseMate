@@ -41,7 +41,7 @@ const Signup = () => {
     if (storedPass != null) {
       alert("User already exists.")
     } else if (!email.endsWith("@andrew.cmu.edu")) { 
-      alert("Must be an @andrew.cmu.edu address.")
+      alert("Must be an Andrew email address.")
     } else {
       storeData(email, pass);
       alert("Signup successful.\nEmail: " + email + "\nPassword: " + pass);
