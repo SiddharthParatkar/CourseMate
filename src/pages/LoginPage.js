@@ -17,13 +17,10 @@ import Form from '../components/Form'
 export default class LoginPage extends React.Component {
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={{backgroundColor: "#4b636e"}}>
         <Logo />
         <Form />
       </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-});

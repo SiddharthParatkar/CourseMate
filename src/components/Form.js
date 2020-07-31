@@ -79,12 +79,12 @@ export default Form;
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
     backgroundColor: "#4b636e",
     alignItems: "center",
     paddingLeft: "10%",
     paddingRight: "10%",
-    paddingBottom: "10%",
+    paddingBottom: 20,
   },
   input: {
     backgroundColor: "rgba(255,255,255,0.3)",
@@ -101,10 +101,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 25,
     alignItems: "center",
-    marginTop: "5%",
+    marginTop: 15,
     paddingVertical: 10,
     width: 150,
-    marginBottom: "25%",
+    marginBottom: 80,
   },
   submitButtonText: {
     fontSize: 20,
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   signupTextCont: {
-    paddingBottom: "10%",
+    paddingBottom: 10,
     alignItems: "center",
   },
   signupButton: {

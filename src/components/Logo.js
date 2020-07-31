@@ -22,15 +22,15 @@ export default Logo;
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
     backgroundColor: "#4b636e",
     alignItems: "center",
-    paddingTop: "40%",
-    paddingBottom: "10%",
+    paddingTop: 150,
+    paddingBottom: 20,
   },
   title: {
     fontSize: 40,
-    marginVertical: 15,
+    marginVertical: 20,
     fontWeight: "bold",
     textAlign: "center",
     color: "#ffff",
