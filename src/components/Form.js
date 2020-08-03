@@ -18,7 +18,8 @@ const Form = () => {
   const getData = async (username) => {
     try {
       const value = await AsyncStorage.getItem(username);
-      return value;
+      if (value === null) return null;
+      return JSON.parse(value).password;
     } catch(e) {
       // error reading value
     }

@@ -19,7 +19,7 @@ const Signup = () => {
 
   const storeData = async (username, password) => {
     try {
-      await AsyncStorage.setItem(username, password)
+      await AsyncStorage.setItem(username, JSON.stringify({password: password, courses: [], friends: [], contactInfo: {}, preferences: {}}))
     } catch (e) {
       // saving error
     }
@@ -28,7 +28,7 @@ const Signup = () => {
   const getData = async (username) => {
     try {
       const value = await AsyncStorage.getItem(username);
-      return value;
+      return JSON.parse(value).password;
     } catch(e) {
       // error reading value
     }
