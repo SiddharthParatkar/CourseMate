@@ -1,22 +1,17 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-} from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 const Logo = () => {
-    return (
-      <View style={styles.container}>
-        <Image
-          style={{ width: 70, height: 90 }} //resize as needed
-          source={require("../images/Placeholder.png")} //get an actual logo
-        />
-        <Text style={styles.title}>Welcome to CourseMate!</Text>
-      </View>
-    );
-}
+  return (
+    <View style={styles.container}>
+      <Image
+        style={{ width: 90, height: 90 }} //resize as needed
+        source={require("../images/Logo.png")} //get an actual logo
+      />
+      <Text style={styles.title}>Welcome to CourseMate!</Text>
+    </View>
+  );
+};
 
 export default Logo;
 
