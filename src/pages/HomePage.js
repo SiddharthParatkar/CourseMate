@@ -10,6 +10,8 @@ import {
   StatusBar,
 } from "react-native";
 
+import { useNavigation } from '@react-navigation/native';
+
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
@@ -76,8 +78,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class HomePage extends React.Component {
-  render() {
+const HomePage = () => {
+
+    const navigation = useNavigation();
+
     return (
       <View style={styles.container}>
         <ScrollView>
@@ -85,7 +89,7 @@ export default class HomePage extends React.Component {
           <Text style={styles.connections}>Connections</Text>
         </ScrollView>
         <TouchableOpacity style={styles.profileButton}>
-          <Text style={styles.buttonText}> Profile </Text>
+          <Text style={styles.buttonText} onPress={() => navigation.navigate('profile')}> Profile </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.settingsButton}>
           <Text style={styles.buttonText}> Connections </Text>
@@ -98,5 +102,6 @@ export default class HomePage extends React.Component {
         </TouchableOpacity>
       </View>
     );
-  }
 }
+
+export default HomePage;

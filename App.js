@@ -5,6 +5,7 @@ import { BackHandler, StyleSheet, Text, View } from "react-native";
 import LoginPage from "./src/pages/LoginPage";
 import Signup from "./src/pages/Signup";
 import HomePage from "./src/pages/HomePage";
+import Profile from "./src/pages/Profile";
 
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -23,6 +24,8 @@ const App = () => {
         <Stack.Screen name="login" component={LoginPage} />
         <Stack.Screen name="signup" component={Signup} />
         <Stack.Screen name="home" component={HomePage} />
+        <Stack.Screen name="profile" component={Profile} />
+       
       </Stack.Navigator>
     </NavigationContainer>
   );
