@@ -95,7 +95,7 @@ const HomePage = () => {
           <Text style={styles.buttonText}> Connections </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.coursesButton}>
-          <Text style={styles.buttonText}> Courses </Text>
+          <Text style={styles.buttonText} onPress={() => navigation.navigate('courses')}> Courses </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.connectionsButton}>
           <Text style={styles.buttonText}> Settings </Text>
