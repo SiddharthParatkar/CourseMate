@@ -42,24 +42,23 @@ const AllCourses = () => {
             marginVertical: 20,
             color: "cornflowerblue",
         }}>Go Back</Text></TouchableOpacity>
+        <SearchBar
+                searchIcon={{ size: 15 }} 
+                inputStyle={{paddingHorizontal: 10}}
+                containerStyle={{backgroundColor: '#37474f', width: "100%",}}
+                placeholder="Search by number or name"              
+                round        
+                onChangeText={(text) => {updateSearch(text); searchFilterFunction(text)}}
+                autoCorrect={false}       
+                value={search}      
+            />
         <FlatList
             keyExtractor = {item => item.code} 
             data={currCourses}
             renderItem = {({item}) => <View style={styles.coursebox}>
                 <Text style={styles.course}
                 onPress={() => {Alert.alert('Course Added')}}//add to user.courses in the database
-                >{item.code}: {item.name}</Text></View>}  
-            ListHeaderComponent={() => <SearchBar      
-                style={styles.searchbar}  
-                searchIcon={{ size: 15 }} 
-                inputStyle={{paddingHorizontal: 10}}
-                containerStyle={{backgroundColor: '#37474f'}}
-                placeholder="Search by number or name"              
-                round        
-                onChangeText={(text) => {updateSearch(text); searchFilterFunction(text)}}
-                autoCorrect={false}       
-                value={search}      
-            />}   
+                >{item.code}: {item.name}</Text></View>}   
         />
         </View>
     );
