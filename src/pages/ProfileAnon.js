@@ -12,111 +12,46 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { ScrollView } from "react-native-gesture-handler";
 
-const Profile = () => {
+const ProfileAnon = () => {
   const navigation = useNavigation();
 
   const courses = [{id: "15213", name: "Intro to Computer Systems"}] //change this to user.courses
 
-  const [about, setAbout] = useState('Hello. My name is David Lyons.');//change this to user.about
-  const [social, setSocial] = useState([{format: "YouTube", account: "DLPikachu8000", id: 0}]);//change this to user.social
-  const [len, incr] = useState(1);
+  const [about, setAbout] = useState('Hello. My name is Siddharth Paratkar.');//change this to user.about
+  const [social, setSocial] = useState([{format: "LinkedIn", account: "Siddharth Paratkar", id: 0}]);//change this to user.social
 
-  const addSocial = (type, elem) => {
-    const newArr = social;
-    const newIdx = newArr.push({format: type, account: elem, id: len});
-    incr(newIdx);
-    setSocial(newArr);
-    //add database stuff to update the user's data
-  }
-
-  const deleteSocial = (id) => {
-    const newArr = social.filter((item) => item.id !== id);
-    setSocial(newArr);
-  }
-  
-
-  const [tempFormat, setTempFormat] = useState('');
-  const [tempAcct, setTempAcct] = useState('');
 //change David to user.name and my e-mail to user.e-mail
     return (
         <ScrollView style={{backgroundColor: "#4b636e"}}>
         <View style={styles.container}>
-        <Text style={styles.title}>David Lyons</Text>
-        <Text style={styles.email}>dalyons@andrew.cmu.edu</Text>
+        <Text style={styles.title}>Siddharth Paratkar</Text>
+        <Text style={styles.email}>sparatka@andrew.cmu.edu</Text>
         <Text style={styles.sectHeader}>Contact Info</Text>
         <FlatList
             style={{flexGrow: 0}}
             keyExtractor = {item => item.format} 
             data={social}
             renderItem = {({item}) => 
-              <Text onPress={() => {Alert.alert(
-                item.format + ": " + item.account + " selected",
-                "What would you like to do?",
-                [{
-                  text: 'Nothing',
-                  onPress: () => {}
-                },
-                {
-                  text: 'Delete',
-                  onPress: () => deleteSocial(item.id),
-                  style: 'cancel'
-                }]
-              )}}
-              style={styles.contactInfo}>{item.format}: {item.account}</Text>
+              <Text style={styles.contactInfo}>{item.format}: {item.account}</Text>
             }/>
-        <TextInput
-          style={styles.input}
-          placeholder="Twitter, Facebook, etc."
-          placeholderTextColor="#fff"
-          returnKeyType="next"
-          keyboardType="email-address"
-          onChangeText={setTempFormat}
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={tempFormat}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="@your_name, etc."
-          placeholderTextColor="#fff"
-          returnKeyType="go"
-          autoCapitalize="none"
-          onChangeText={setTempAcct}
-          value={tempAcct}
-        />
-        <TouchableOpacity
-          style={styles.submitButton}
-          onPress={() => addSocial(tempFormat, tempAcct)}//Also add this information to user.social
-        >
-        <Text style={styles.submitButtonText}>+</Text>
-        </TouchableOpacity>
         <Text style={styles.sectHeader}>About Me</Text>
-        <TextInput
-          style={styles.input2}
-          placeholderTextColor="#fff"
-          returnKeyType="next"
-          onChangeText={setAbout}
-          autoCapitalize="none"
-          multiline={true}
-          autoCorrect={false}
-          value={about}
-        />
-        <TouchableOpacity
-          style={styles.submitButton2}
-          onPress={() => {}}//create an actual function that saves this info to the database
-        >
-        <Text style={styles.submitButtonText2}>Save Changes</Text>
-        </TouchableOpacity>
+        <Text style={styles.input2}>Hello, my name is Sid.</Text>
         <Text style={styles.sectHeader}>Courses</Text>
         <FlatList
             style={{flexGrow: 0}}
             keyExtractor = {item => item.format} 
             data={courses}
             renderItem = {({item}) => <Text style={styles.contactInfo}>{item.id}: {item.name}</Text>} />
+        <TouchableOpacity
+          style={styles.submitButton2}
+          onPress={() => {Alert.alert("Friend added.")}}//create an actual function that saves this info to the database
+        >
+        <Text style={styles.submitButtonText2}>Add Friend</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('home')}>
           <Text style={{
             fontSize: 20,
-            marginVertical: 30,
+            marginVertical: 10,
             fontWeight: "500",
             paddingBottom: 10,
             color: "cornflowerblue",
@@ -126,7 +61,7 @@ const Profile = () => {
     );
 }
 
-export default Profile;
+export default ProfileAnon;
 
 const styles = StyleSheet.create({
   container: {
@@ -179,6 +114,7 @@ const styles = StyleSheet.create({
     color: "#ffff",
     fontSize: 10,
     width: 200,
+    marginBottom: 10,
     maxHeight: 150,
     textAlign: "center",
   },

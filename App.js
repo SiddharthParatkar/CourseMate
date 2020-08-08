@@ -6,6 +6,10 @@ import LoginPage from "./src/pages/LoginPage";
 import Signup from "./src/pages/Signup";
 import HomePage from "./src/pages/HomePage";
 import Profile from "./src/pages/Profile";
+import AllCourses from "./src/pages/AllCourses";
+import MyCourses from "./src/pages/MyCourses";
+import Course from "./src/pages/Course";
+import ProfileAnon from "./src/pages/ProfileAnon";
 
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -25,6 +29,10 @@ const App = () => {
         <Stack.Screen name="signup" component={Signup} />
         <Stack.Screen name="home" component={HomePage} />
         <Stack.Screen name="profile" component={Profile} />
+        <Stack.Screen name="courses" component={MyCourses} />
+        <Stack.Screen name="course" component={Course} />
+        <Stack.Screen name="allCourses" component={AllCourses} />
+        <Stack.Screen name="publicProfile" component={ProfileAnon} />
        
       </Stack.Navigator>
     </NavigationContainer>
