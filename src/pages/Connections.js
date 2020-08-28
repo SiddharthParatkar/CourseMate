@@ -8,6 +8,8 @@ import {
   FlatList,
 } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -58,25 +60,22 @@ const styles = StyleSheet.create({
 });
 
 const Connections = () => {
+  const navigation = useNavigation();
 
   const connections = [{name: "Ihita"}]
 
   return (
         <View style={styles.container}>
         <Text style={styles.title}>My Connections</Text>
-        <TouchableOpacity
-          style={styles.addButton}
-        >
-        <Text style={styles.addText}>Add a Connection</Text>
-        </TouchableOpacity>
         <FlatList
             style={{flexGrow: 0}}
             data={connections}
             renderItem = {({item}) => <View style={styles.connectionButton}>
-                <Text style={styles.connection}
+                <Text onPress={() => navigation.navigate('viewConnection')}
+                style={styles.connection}
                 >{item.name}</Text></View>}  
         />
-        <TouchableOpacity >
+        <TouchableOpacity onPress={() => navigation.navigate('home')}>
           <Text style={styles.backButton}>Go Back</Text></TouchableOpacity>
         </View>
     );

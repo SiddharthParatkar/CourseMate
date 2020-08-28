@@ -10,6 +10,9 @@ import AllCourses from "./src/pages/AllCourses";
 import MyCourses from "./src/pages/MyCourses";
 import Course from "./src/pages/Course";
 import ProfileAnon from "./src/pages/ProfileAnon";
+import Connections from "./src/pages/Connections";
+import ViewConnection from "./src/pages/Connections";
+import Settings from "./src/pages/Settings";
 
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -33,6 +36,9 @@ const App = () => {
         <Stack.Screen name="course" component={Course} />
         <Stack.Screen name="allCourses" component={AllCourses} />
         <Stack.Screen name="publicProfile" component={ProfileAnon} />
+        <Stack.Screen name="connections" component={Connections} />
+        <Stack.Screen name="viewConnection" component={ViewConnection} />
+        <Stack.Screen name="settings" component={Settings} />
        
       </Stack.Navigator>
     </NavigationContainer>

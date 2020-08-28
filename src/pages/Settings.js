@@ -30,6 +30,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#ffff",
   },
+  backButton: {
+    fontSize: 20,
+    marginVertical: 30,
+    fontWeight: "500",
+    paddingBottom: 10,
+    color: "#B7670F",
+  }
 });
 
 export default class Settings extends React.Component{
@@ -50,6 +57,8 @@ export default class Settings extends React.Component{
           onValueChange={(value) => this.setState({toggleSM:value})}
           value={this.state.toggleSM} >
         </Switch>
+        <TouchableOpacity onPress={() => navigation.navigate('home')}>
+          <Text style={styles.backButton}>Go Back</Text></TouchableOpacity>
       </View>
     );
   }

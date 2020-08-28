@@ -82,7 +82,7 @@ const ViewConnection = () => {
             data={socialMedia}
             renderItem = {({item}) => <Text
             style={styles.socialMedia}>{item.type}: {item.username}</Text>} />
-        <TouchableOpacity >
+        <TouchableOpacity onPress={() => navigation.navigate('connections')}>
           <Text style={styles.backButton}>Go Back</Text></TouchableOpacity>
         </View>
         </ScrollView>

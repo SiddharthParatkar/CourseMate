@@ -92,13 +92,13 @@ const HomePage = () => {
           <Text style={styles.buttonText} onPress={() => navigation.navigate('profile')}> Profile </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.settingsButton}>
-          <Text style={styles.buttonText}> Connections </Text>
+          <Text style={styles.buttonText} onPress={() => navigation.navigate('connections')}> Connections </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.coursesButton}>
           <Text style={styles.buttonText} onPress={() => navigation.navigate('courses')}> Courses </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.connectionsButton}>
-          <Text style={styles.buttonText}> Settings </Text>
+          <Text style={styles.buttonText} onPress={() => navigation.navigate('settings')}> Settings </Text>
         </TouchableOpacity>
       </View>
     );
